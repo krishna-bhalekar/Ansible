@@ -1,0 +1,10 @@
+---
+- name: Create a directory on all nodes
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Create directory
+      file:
+        path: /tmp/my_directory
+        state: directory
