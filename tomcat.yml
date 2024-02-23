@@ -6,20 +6,20 @@
   tasks:
     - name: Download Apache Tomcat
       get_url:
-        url: "https://downloads.apache.org/tomcat/tomcat-9/v9.0.59/bin/apache-tomcat-9.0.59.tar.gz"
-        dest: "/tmp/apache-tomcat-9.0.59.tar.gz"
+        url: "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.86/bin/apache-tomcat-9.0.86.tar.gz"
+        dest: "/tmp/apache-tomcat-9.0.86.tar.gz"
 
     - name: Extract Apache Tomcat
       ansible.builtin.archive:
-        src: "/tmp/apache-tomcat-9.0.59.tar.gz"
+        src: "/tmp/apache-tomcat-9.0.86.tar.gz"
         dest: "/opt"
         mode: '755'
 
     - name: Start Apache Tomcat
       ansible.builtin.command:
-        cmd: "/opt/apache-tomcat-9.0.59/bin/startup.sh"
+        cmd: "/opt/apache-tomcat-9.0.86/bin/startup.sh"
 
     - name: Create Hello World file
       ansible.builtin.copy:
         content: "Hello, World!"
-        dest: "/opt/apache-tomcat-9.0.59/webapps/hello/index.html"
+        dest: "/opt/apache-tomcat-9.0.86/webapps/hello/index.html"
